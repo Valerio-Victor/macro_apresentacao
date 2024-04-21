@@ -1,5 +1,5 @@
 ---
-title: 'APRESENTAÇÃO DA DISCIPLINA </br> (AULA 01)'
+title: 'APRESENTAÇÃO DA DISCIPLINA'
 subtitle: 'ADM03F - Macroeconomia'
 author: 'Autor: Victor Valerio'
 date: 'Última atualização: `r format(Sys.Date(),"%d-%m-%Y")`'
@@ -20,7 +20,7 @@ library(xaringanthemer)
 library(xaringanExtra)
 
 # CONFIGURAÇÃO DA FONTE: ----
-style_mono_light(base_color = '#23395b',
+style_mono_light(base_color = '#1c5253',
                   text_font_size = '30px',
                   header_h1_font_size = '3rem',
                   header_h2_font_size = '2rem',
