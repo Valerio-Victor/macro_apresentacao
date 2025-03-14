@@ -2,7 +2,7 @@
 title: 'APRESENTAÇÃO DA DISCIPLINA'
 subtitle: 'ADM03F - Macroeconomia'
 author: 'Autor: Victor Valerio'
-date: 'Última atualização: `r format(Sys.Date(),"%d-%m-%Y")`'
+date: 'Última atualização: `r format(Sys.Date(),"%d de %B de %Y")`'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -50,6 +50,7 @@ knitr::include_graphics(
 
 ---
 ## TÓPICOS ABORDADOS
+----
 
 - [**QUEM SÃO OS PARTICIPANTES?**](#sobre_participantes)
 
@@ -74,37 +75,34 @@ knitr::include_graphics(
 ---
 <div style="text-align: justify">
 ## PRINCIPAIS INFORMAÇÕES
+----
 - **Nome:** *Victor Valerio*;
 - **E-mail:** *victor.dmv@unifei.edu.br*;
-- **Tel:** *+55 (35) 3629-1151*
+- **Tel:** *(35) 3629-1151 / (35) 99194-0393*
 - **Sala:** *B.3216 (1º Piso IEPG);*
 
----
-<div style="text-align: justify">
 ## FORMAÇÃO
-
+----
 - **GRADUAÇÃO**: Ciências Econômicas (UNESP);
-
 - **MESTRADO**: Engenharia de Produção (UNIFEI)
-
 - **DOUTORADO**: Engenharia de Produção (UNIFEI)
 
 ---
 <div style="text-align: justify">
 ## ÁREAS DE ATUAÇÃO
+----
 
 - **DOCÊNCIA**: Economia (IEPG20), Engenharia Econômica (IEPG10), 	
-Macroeconomia (ADM022), Análise 	de 	Investimento com Risco (ADM013), 
-Metodologia Quantitativa em Administração (MPA033);
+Macroeconomia (ADM022), Análise 	de 	Investimento com Risco (ADM013);
 
-- **PESQUISA**: Eficiência e Produtividade, Engenharia Econômica, 
-Energia Renovável, Ciência de Dados;
+- **PESQUISA**: Engenharia Econômica, Energia Renovável, Ciência de Dados;
 
-- **INSTITUCIONAL**: Representante do Estado de Minas Gerais na Ordem dos Economistas do 
-Brasil (OEB); Coordenador do Núcleo de Excelência em 	Sistemas Fotovoltaicos 
-(NE-SFV); Pesquisador Assistente no Centro de 	Hidrogênio Verde (CHV2); Coordenador
-da Rede - Impacto GDMG, Pesquisador Rede Biocombustíveis de Aviação;
-Coordenador de Graduação de Curso (Administração-UNIFEI).
+- **INSTITUCIONAL**: Coordenador do Núcleo de Excelência em 	Sistemas Fotovoltaicos 
+(**NE-SFV**); Pesquisador Assistente no Centro de 	Hidrogênio Verde (**CHV2**); Coordenador
+da Rede de Análise em Energia Renovável e Desenvolvimento Econômico (**RAERDE**), 
+Pesquisador do Centro de Excelência em Tecnologias para a Transição Energética (**CETTE**);
+Consultor do Ministério de Portos e Aeroportos e do Ministério de Minas e Energia;
+Coordenador Adjunto de Graduação de Curso.
 
 ---
 class: inverse, center, middle  
@@ -134,14 +132,20 @@ knitr::include_graphics(
 
 ---
 <div style="text-align: justify">
-## PERGUNTAS A SEREM RESPONDIDAS POR CADA ESTUDANTE
+## PERFIL DO ESTUDANTE
+----
 
-- Qual o seu nome?
-- Qual área de atuação profissional te interessa?
-- O que faz no tempo livre? (esporte, filmes/séries, dormir, dançar, fofocar...)
-- Qual seu signo?
-- Conte uma curiosidade sobre você.
-- Conte uma mentira sobre você.
+- INFORMAÇÕES BÁSICAS:
+  - Qual o seu **nome**?
+  - Qual área de **atuação profissional** te interessa?
+  
+- PERSONALIDADE:
+  - O que faz no tempo **livre**?
+  - Qual seu **signo**?
+  
+- CARÁTER:
+  - Conte uma **curiosidade** e uma **mentira** sobre você.
+  - No hipismo o **cavalo é o atleta**?
 
 ---
 class: inverse, center, middle 
@@ -156,15 +160,17 @@ knitr::include_graphics(
 ---
 <div style="text-align: justify">
 ## QUAL O OBJETIVO DA DISCIPLINA?
+----
 
-- O objetivo geral da disciplina de Macroeconomia consiste em introduzir as principais **formulações 
-teóricas** necessárias ao entendimendo do **funcionamento da economia de um país**.
+- O objetivo geral da disciplina de Macroeconomia consiste em introduzir as 
+principais **formulações teóricas** necessárias ao entendimendo do 
+**funcionamento da economia de um país**.
 
-</br>
 
-- **Objetivo específico:** Sempre que possível, as **associações práticas** possíveis 
-para o nível de aprofundamento alcançado serão discutidas (Para estudo da realidade
-brasileira será adotada uma aplicação web desenvolvida para a disciplina).
+- **Objetivo específico:** Sempre que possível, as **associações práticas** (impacto
+da macroeconomia nas empresas) serão discutidas.
+
+- Por óbvio, nosso foco sempre será a **conjuntura brasileira**.
 
 ---
 class: inverse, center, middle
@@ -180,23 +186,12 @@ knitr::include_graphics(
 ---
 <div style="text-align: justify">
 ## COMO AS AULAS SERÃO ORGANIZADAS?
+----
 
-- As aulas serão **estritamente expositivas** e **presenciais**;
+- As aulas serão **estritamente expositivas** e **presenciais**.
 
-- Assim, a dinâmica ocorrerá da seguinte maneira:
-
-    - 10 minutos iniciais: Momento para tirar dúvidas e também para aguardar a acomodação dos estudantes;
-
-    - Realização da “chamada”;
-
-    - Início das exposições teóricas (início da aula).
-    
-- **Dica**: Crie um dicionário de conceitos e comece a companhar notícias de 
+  - **Dica**: Crie um **dicionário de conceitos** e comece a companhar notícias de 
 economia.
-
----
-<div style="text-align: justify">
-## COMO AS AULAS SERÃO ORGANIZADAS?
 
 - Em cada semana de aula será disponibilizado no SIGAA:
 
@@ -204,7 +199,21 @@ economia.
 
   - **Breve exposição sobre os principais conceitos trabalhados na aula**;
 
-  - **Slide da aula (o mesmo utilizado em sala)**.
+  - **Slide da aula (com referência ao final do slide)**.
+
+---
+<div style="text-align: justify">
+## COMO AS AULAS SERÃO ORGANIZADAS?
+----
+
+- A dinâmica ocorrerá da seguinte maneira:
+
+  **1.** 10 minutos iniciais: Momento para tirar dúvidas e também para aguardar a 
+  acomodação dos estudantes;
+  
+  **2.** Realização da “chamada”;
+  
+  **3.** Início das exposições teóricas (início da aula).
 
 ---
 class: inverse, center, middle
@@ -219,6 +228,7 @@ knitr::include_graphics(
 ---
 <div style="text-align: justify">
 ## COMO OS ATENDIMENTOS SERÃO ORGANIZADOS?
+----
 
 - **ATENDIMENTO EM SALA**: 
 
@@ -231,12 +241,11 @@ knitr::include_graphics(
     - Para atendimento pessoal basta utilizar o seguinte link: 
     
     - [**https://profvictorunifei.shinyapps.io/agenda/**](https://profvictorunifei.shinyapps.io/agenda/)
-    
-    - O agendamento deverá ocorrer com 4 dias de antecedência, não é necessário solicitar e não é necessário avisar.
 
 ---
 <div style="text-align: justify">
 ## COMO OS ATENDIMENTOS SERÃO ORGANIZADOS?
+----
 
 - Há ainda mais um instrumento de interação, criei um grupo no whatsapp (acho o mais dinâmico de todos). 
 Por favor, ingresse no grupo! Basta clicar neste 
@@ -246,16 +255,6 @@ Por favor, ingresse no grupo! Basta clicar neste
 ```{r, echo = F, fig.align = 'center', out.width = '50%'}
 knitr::include_graphics(
   'https://media.giphy.com/media/l2JebaQTHOUAIarQc/giphy.gif')
-```
-
-
----
-<div style="text-align: justify">
-## GRUPO DE WHATSAPP
-
-```{r, echo = F, fig.align = 'center', out.width = '50%'}
-knitr::include_graphics(
-  'agenda_wpp.jpg')
 ```
 
 ---
@@ -270,6 +269,8 @@ knitr::include_graphics(
 
 ---
 ## QUAIS OS CONTEÚDOS?
+----
+
 ```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
 library(magrittr)
 library(kableExtra)
@@ -279,20 +280,20 @@ cronograma <- data.frame(
   DIA = c(format(Sys.Date(),"%d-%m-%Y"),
           format(Sys.Date()+(7*1),"%d-%m-%Y"),
           format(Sys.Date()+(7*2),"%d-%m-%Y"),
+          format(Sys.Date()+(7*3),"%d-%m-%Y"),
           format(Sys.Date()+(7*4),"%d-%m-%Y"),
-          format(Sys.Date()+(7*5),"%d-%m-%Y"),
           format(Sys.Date()+(7*6),"%d-%m-%Y"),
           format(Sys.Date()+(7*7),"%d-%m-%Y"),
           format(Sys.Date()+(7*8),"%d-%m-%Y"),
           format(Sys.Date()+(7*9),"%d-%m-%Y")),
   TEMAS = c('Apresentação da Disciplina',
-            'Mercados Macroeconômicos',
-           'Taxa de Inflação - Conceitos', 
-           'Taxa de Inflação - Estudo de Caso', 
-           'Taxa de Câmbio - Conceitos',
-           'Taxa de Câmbio - Estudo de Caso',
-           'Taxa de Juros - Conceitos',
-           'Taxa de Juros - Estudo de Caso', 
+            'Taxa de Inflação',
+           'Taxa de Inflação', 
+           'Taxa de Câmbio', 
+           'Taxa de Câmbio',
+           'Taxa de Juros',
+           'Taxa de Juros',
+           'Relação entre as Taxas', 
            'Prova 01'))
 
 knitr::kable(cronograma, 
@@ -306,6 +307,8 @@ knitr::kable(cronograma,
 
 ---
 ## QUAIS OS CONTEÚDOS?
+----
+
 ```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
 library(magrittr)
 library(kableExtra)
@@ -316,14 +319,14 @@ cronograma <- data.frame(
           format(Sys.Date()+(7*11),"%d-%m-%Y"),
           format(Sys.Date()+(7*12),"%d-%m-%Y"),
           format(Sys.Date()+(7*13),"%d-%m-%Y"),
-          format(Sys.Date()+(7*14),"%d-%m-%Y"),
           format(Sys.Date()+(7*15),"%d-%m-%Y"),
-          format(Sys.Date()+(7*16),"%d-%m-%Y")),
+          format(Sys.Date()+(7*16),"%d-%m-%Y"),
+          format(Sys.Date()+(7*17),"%d-%m-%Y")),
   TEMAS = c('Identidades Macroeconômicas', 
-           'Fluxo Circular da Renda', 
-           'Agregados Macroeconômicos - Conceitos',
-           'Agregados Macroeconômicos - Estudo de Caso', 
-           'Mercado de Trabalho - Conceitos',
+           'Agregados Macroeconômico', 
+           'Agregados Macroeconômicos',
+           'Dinâmica Macroeconômica', 
+           'Expectativas',
            'Prova 02',
            'Prova Substitutiva'))
 
@@ -338,12 +341,19 @@ knitr::kable(cronograma,
 
 ---
 ## COMPOSIÇÃO DAS NOTAS
+----
 
-- Equação Nota 1: $Nota_1  = 0,8. Trabalho_{parte 1} + 0,2.Questionários_{parte 1}$
+- **Equação Nota 1**: 
 
-- Equação Nota 2: $Nota_2  = 0,8 .Trabalho_{parte 2} + 0,2.Questionários_{parte 2}$
+  - $Nota_1  = 0,8 \times Avaliação_{parte 1} + 0,2 \times Questionários_{parte 1}$
 
-- Equação Nota Final: $Nota_{Final}  = (Nota_1 + Nota_2)/2$
+- **Equação Nota 2**: 
+
+  - $Nota_2  = 0,8 \times Avaliação_{parte 2} + 0,2 \times Questionários_{parte 2}$
+
+- **Equação Nota Final**: 
+
+  - $Nota_{Final}  = (Nota_1 + Nota_2)/2$
 
 ---
 class: inverse, center, middle
