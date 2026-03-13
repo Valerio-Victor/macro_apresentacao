@@ -46,6 +46,8 @@ class: inverse, center, middle
 ```{r, echo = F, fig.align = 'center', out.width = '50%'}
 knitr::include_graphics(
   'https://media.giphy.com/media/citBl9yPwnUOs/giphy.gif')
+
+
 ```
 
 ---
@@ -93,7 +95,7 @@ knitr::include_graphics(
 ----
 
 - **DOCÊNCIA**: Economia (IEPG20), Engenharia Econômica (IEPG10), 	
-Macroeconomia (ADM022), Análise 	de 	Investimento com Risco (ADM013);
+Macroeconomia (ADM03F), Análise 	de 	Investimento com Risco (ADM013);
 
 - **PESQUISA**: Engenharia Econômica, Energia Renovável, Ciência de Dados;
 
@@ -102,7 +104,7 @@ Macroeconomia (ADM022), Análise 	de 	Investimento com Risco (ADM013);
 da Rede de Análise em Energia Renovável e Desenvolvimento Econômico (**RAERDE**), 
 Pesquisador do Centro de Excelência em Tecnologias para a Transição Energética (**CETTE**);
 Consultor do Ministério de Portos e Aeroportos e do Ministério de Minas e Energia;
-Coordenador Adjunto de Graduação de Curso.
+Coordenador Adjunto de Graduação de Curso e Coordenador do **MPA**.
 
 ---
 class: inverse, center, middle  
@@ -167,10 +169,145 @@ principais **formulações teóricas** necessárias ao entendimendo do
 **funcionamento da economia de um país**.
 
 
-- **Objetivo específico:** Sempre que possível, as **associações práticas** (impacto
-da macroeconomia nas empresas) serão discutidas.
+- Define-se por **entendimento do funcionamento da economia de um país**:
 
-- Por óbvio, nosso foco sempre será a **conjuntura brasileira**.
+  - Análise de Conjuntura
+  - Construção de Cenários Futuros
+  
+  
+---
+<div style="text-align: justify">
+## QUAL O OBJETIVO DA DISCIPLINA?
+----
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(magrittr)
+library(zoo)
+
+pib_anual <- sidrar::get_sidra(api = '/t/5932/n1/all/v/6561/p/all/c11255/90707/d/v6561%201') %>% 
+  janitor::clean_names() %>%  
+  dplyr::select(trimestre_codigo, valor) %>% 
+  dplyr::mutate(trimestre_codigo = lubridate::yq(trimestre_codigo))
+
+ano_inicial <- lubridate::year(pib_anual$trimestre_codigo[1])
+trimestre_inicial <- lubridate::quarter(pib_anual$trimestre_codigo[1])
+
+pib_ts <- ts(
+  pib_anual$valor,
+  start = c(ano_inicial, trimestre_inicial),
+  frequency = 4
+)
+
+pib_anual_prev <- forecast::forecast(forecast::auto.arima(pib_ts), h = 8)
+
+prev_df <- tibble::tibble(
+  tempo = time(pib_anual_prev$mean),
+  prev  = as.numeric(pib_anual_prev$mean),
+  lower = as.numeric(pib_anual_prev$lower[,2]),
+  upper = as.numeric(pib_anual_prev$upper[,2])
+)
+
+prev_df <- prev_df %>%
+  dplyr::mutate(
+    ano = floor(tempo),
+    tri = cycle(pib_anual_prev$mean),
+    periodo = paste0(ano, " – ", tri, "º trimestre"),
+    valor_fmt = scales::percent(prev/100, decimal.mark = ",", accuracy = 0.01),
+    lower_fmt = scales::percent(lower/100, decimal.mark = ",", accuracy = 0.01),
+    upper_fmt = scales::percent(upper/100, decimal.mark = ",", accuracy = 0.01)
+  )
+
+hist_df <- tibble::tibble(
+  tempo = time(pib_ts),
+  valor = as.numeric(pib_ts)
+)
+
+hist_df <- hist_df %>%
+  dplyr::mutate(
+    ano = floor(tempo),
+    tri = cycle(pib_ts),
+    periodo = paste0(ano, " – ", tri, "º trimestre"),
+    valor_fmt = scales::percent(valor/100, decimal.mark = ",", accuracy = 0.01)
+  )
+
+graf <- ggplot() +
+  
+  geom_line(
+    data = hist_df,
+    aes(
+      x = tempo,
+      y = valor/100,
+      group = 1,
+      text = paste0(
+        "<b>", periodo, 
+        "<br>PIB: ", valor_fmt
+      )
+    ),
+    color = "black"
+  ) +
+  
+  geom_line(
+    data = prev_df,
+    aes(
+      x = tempo,
+      y = prev/100,
+      group = 1,
+      text = paste0(
+        "<b>", periodo,
+        "<br>PIB (prev.): ", valor_fmt
+      )
+    ),
+    color = "#1c5253"
+  ) + 
+  
+    geom_line(
+    data = prev_df,
+    aes(
+      x = tempo,
+      y = lower/100,
+      group = 1,
+      text = paste0(
+        "<b>", periodo, 
+        "<br>PIB (prev.): ", lower_fmt
+      )
+    ),
+    color = "#633b71"
+  ) + 
+  
+      geom_line(
+    data = prev_df,
+    aes(
+      x = tempo,
+      y = upper/100,
+      group = 1,
+      text = paste0(
+        "<b>", periodo,
+        "<br>PIB (prev.): ", upper_fmt
+      )
+    ),
+    color = "#5f461b"
+  ) + 
+  
+  
+  scale_y_continuous(labels = scales::percent_format(decimal.mark = ',')) + 
+  
+  labs(
+    x = "Tempo",
+    y = "Taxa de Variação do Índice de Volume Trimestral",
+    title = "Produto Interno Bruto - PIB"
+  ) +
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 title_font_size = 20) 
+
+graf <- plotly::ggplotly(graf, tooltip = 'text')
+
+widgetframe::frameWidget(graf, 
+                         width = '100%', 
+                         height = '100%')
+
+```
+
 
 ---
 class: inverse, center, middle
@@ -208,12 +345,15 @@ economia.
 
 - A dinâmica ocorrerá da seguinte maneira:
 
-  **1.** 10 minutos iniciais: Momento para tirar dúvidas e também para aguardar a 
+  **1.** 5 minutos iniciais: Momento para tirar dúvidas e também para aguardar a 
   acomodação dos estudantes;
   
   **2.** Realização da “chamada”;
   
   **3.** Início das exposições teóricas (início da aula).
+  
+- Caso você chegue após a realização da chamada, será registrada falta; no 
+entanto, você poderá permanecer e participar normalmente da aula.
 
 ---
 class: inverse, center, middle
@@ -252,9 +392,8 @@ Por favor, ingresse no grupo! Basta clicar neste
 [**link**](https://chat.whatsapp.com/K0ikt0cd8v8ATr28IQAYTk)! Obviamente, sua entrada é facultativa!
 
 
-```{r, echo = F, fig.align = 'center', out.width = '50%'}
-knitr::include_graphics(
-  'https://media.giphy.com/media/l2JebaQTHOUAIarQc/giphy.gif')
+```{r, echo = F, fig.align = 'center', out.width = '30%'}
+knitr::include_graphics(path = 'grupo_wpp.png')
 ```
 
 ---
@@ -278,14 +417,14 @@ library(kableExtra)
 cronograma <- data.frame(
   AULA = c(1, 2, 3, 4, 5, 6, 7, 8, 9),
   DIA = c(format(Sys.Date(),"%d-%m-%Y"),
-          format(Sys.Date()+(7*1),"%d-%m-%Y"),
           format(Sys.Date()+(7*2),"%d-%m-%Y"),
-          format(Sys.Date()+(7*3),"%d-%m-%Y"),
           format(Sys.Date()+(7*4),"%d-%m-%Y"),
+          format(Sys.Date()+(7*5),"%d-%m-%Y"),
           format(Sys.Date()+(7*6),"%d-%m-%Y"),
-          format(Sys.Date()+(7*7),"%d-%m-%Y"),
           format(Sys.Date()+(7*8),"%d-%m-%Y"),
-          format(Sys.Date()+(7*9),"%d-%m-%Y")),
+          format(Sys.Date()+(7*9),"%d-%m-%Y"),
+          format(Sys.Date()+(7*10),"%d-%m-%Y"),
+          format(Sys.Date()+(7*11),"%d-%m-%Y")),
   TEMAS = c('Apresentação da Disciplina',
             'Taxa de Inflação',
            'Taxa de Inflação', 
@@ -315,20 +454,20 @@ library(kableExtra)
 
 cronograma <- data.frame(
   AULA = c(10, 11, 12, 13, 14, 15, 16),
-  DIA = c(format(Sys.Date()+(7*10),"%d-%m-%Y"),
-          format(Sys.Date()+(7*11),"%d-%m-%Y"),
-          format(Sys.Date()+(7*12),"%d-%m-%Y"),
+  DIA = c(format(Sys.Date()+(7*12),"%d-%m-%Y"),
           format(Sys.Date()+(7*13),"%d-%m-%Y"),
+          format(Sys.Date()+(7*14),"%d-%m-%Y"),
           format(Sys.Date()+(7*15),"%d-%m-%Y"),
           format(Sys.Date()+(7*16),"%d-%m-%Y"),
-          format(Sys.Date()+(7*17),"%d-%m-%Y")),
+          format(Sys.Date()+(7*17),"%d-%m-%Y"),
+          format(Sys.Date()+(7*18),"%d-%m-%Y")),
   TEMAS = c('Identidades Macroeconômicas', 
            'Agregados Macroeconômico', 
            'Agregados Macroeconômicos',
            'Dinâmica Macroeconômica', 
-           'Expectativas',
            'Prova 02',
-           'Prova Substitutiva'))
+           'Prova Substitutiva',
+           ' - '))
 
 knitr::kable(cronograma, 
              escape = FALSE,
