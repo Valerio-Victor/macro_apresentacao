@@ -453,21 +453,17 @@ library(magrittr)
 library(kableExtra)
 
 cronograma <- data.frame(
-  AULA = c(10, 11, 12, 13, 14, 15, 16),
-  DIA = c(format(Sys.Date()+(7*12),"%d-%m-%Y"),
-          format(Sys.Date()+(7*13),"%d-%m-%Y"),
+  AULA = c(10, 11, 12, 13, 14),
+  DIA = c(format(Sys.Date()+(7*13),"%d-%m-%Y"),
           format(Sys.Date()+(7*14),"%d-%m-%Y"),
           format(Sys.Date()+(7*15),"%d-%m-%Y"),
           format(Sys.Date()+(7*16),"%d-%m-%Y"),
-          format(Sys.Date()+(7*17),"%d-%m-%Y"),
-          format(Sys.Date()+(7*18),"%d-%m-%Y")),
-  TEMAS = c('Identidades Macroeconômicas', 
-           'Agregados Macroeconômico', 
+          format(Sys.Date()+(7*17),"%d-%m-%Y")),
+  TEMAS = c('Agregados Macroeconômicos', 
            'Agregados Macroeconômicos',
            'Dinâmica Macroeconômica', 
            'Prova 02',
-           'Prova Substitutiva',
-           ' - '))
+           'Prova Substitutiva'))
 
 knitr::kable(cronograma, 
              escape = FALSE,
